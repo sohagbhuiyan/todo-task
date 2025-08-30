@@ -12,16 +12,15 @@ export default function TaskList({ onOpenForm }: { onOpenForm: () => void }) {
   const [formData, setFormData] = useState({ title: "", description: "", date: "" });
 
   // Format date
-  const formatDate = (dateStr: string) => {
-    if (!dateStr) return "";
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-  };
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return "";
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+};
 
   // Start editing
   const handleEdit = (task: any) => {
@@ -56,7 +55,7 @@ export default function TaskList({ onOpenForm }: { onOpenForm: () => void }) {
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 border-b border-gray-300 rounded-lg shadow-lg bg-gray-50"
+            className="flex flex-col sm:flex-row sm:justify-between sm:items-center p-4 border-b border-gray-100 rounded-lg shadow-lg bg-gray-50"
           >
             {/* Left: Checkbox + Task Info */}
             <div className="flex items-start space-x-3 w-full sm:w-auto">

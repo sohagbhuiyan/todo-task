@@ -1,11 +1,11 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
-
+import { createSlice, nanoid} from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 export interface Task {
   id: string;
   title: string;
   description: string;
   date: string;
-  completed: boolean;
+  completed?: boolean;
 }
 
 interface TodoState {
